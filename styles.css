@@ -1,0 +1,757 @@
+/* ========================================
+   МОБИЛЬНЫЙ САЙТ-ПОЗДРАВЛЕНИЕ
+   Стили для всех компонентов
+   ======================================== */
+
+/* ========================================
+   CSS ПЕРЕМЕННЫЕ
+   Цветовая палитра и настройки
+   ======================================== */
+:root {
+    /* Основные цвета */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --warm-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --soft-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --celebration-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+    /* Цвета текста */
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a68;
+    --text-light: #ffffff;
+
+    /* Цвета чат-баблов */
+    --bubble-vova: #e3f2fd;
+    --bubble-arisha: #fce4ec;
+    --bubble-roma: #e8f5e9;
+    --bubble-katya: #fff3e0;
+
+    /* Акцентные цвета */
+    --accent-success: #4caf50;
+    --accent-error: #f44336;
+    --accent-warning: #ff9800;
+
+    /* Отступы */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+
+    /* Радиусы */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+
+    /* Тени */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   БАЗОВЫЕ СТИЛИ
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Scroll Snapping: страница прилипает к каждому экрану */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fafafa;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   ЭКРАНЫ (СЕКЦИИ)
+   Каждый экран занимает минимум 100vh
+   ======================================== */
+.screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Динамическая высота для мобильных */
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: relative;
+    /* Scroll Snapping: прилипание к началу экрана */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* ========================================
+   ПЕРЕКЛЮЧАТЕЛЬ ЗВУКА
+   ======================================== */
+.sound-toggle {
+    position: fixed;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    z-index: 1000;
+}
+
+.sound-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50px;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.sound-btn:active {
+    transform: scale(0.95);
+}
+
+.sound-btn.active {
+    background: var(--accent-success);
+    color: white;
+}
+
+.sound-btn.active .sound-icon::before {
+    content: '🔊';
+}
+
+.sound-icon {
+    font-size: 18px;
+}
+
+/* ========================================
+   ЭКРАН 1: HERO
+   ======================================== */
+.hero-screen {
+    background: var(--primary-gradient);
+    color: var(--text-light);
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-emoji {
+    font-size: 80px;
+    margin-bottom: var(--spacing-md);
+    animation: bounce 2s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.hero-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: clamp(36px, 12vw, 56px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title-line {
+    display: block;
+}
+
+.hero-name {
+    font-size: clamp(20px, 6vw, 28px);
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.scroll-text {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.scroll-arrow {
+    font-size: 24px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   ЭКРАНЫ 2-5: ЧАТ-СООБЩЕНИЯ
+   ======================================== */
+.chat-screen {
+    background: var(--soft-gradient);
+    padding-top: 60px;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 360px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-screen.active .chat-container {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-xs);
+}
+
+.chat-avatar {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+.chat-name {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.chat-bubble {
+    background: white;
+    border-radius: var(--radius-lg);
+    border-top-left-radius: var(--spacing-xs);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-medium);
+    position: relative;
+}
+
+/* Разные цвета фона для разных отправителей */
+#message-1 .chat-bubble {
+    background: var(--bubble-vova);
+}
+
+#message-2 .chat-bubble {
+    background: var(--bubble-arisha);
+}
+
+#message-3 .chat-bubble {
+    background: var(--bubble-roma);
+}
+
+#message-4 .chat-bubble {
+    background: var(--bubble-katya);
+}
+
+.bubble-content {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.bubble-content p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.bubble-content p:last-child {
+    margin-bottom: 0;
+}
+
+.bubble-content strong {
+    color: #6c5ce7;
+    font-weight: 600;
+}
+
+.bubble-time {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-top: var(--spacing-sm);
+}
+
+/* Стили для видео в бабле */
+.bubble-video {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Стили для аудио в бабле */
+.bubble-audio {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
+   ЭКРАН 6: ПОДАРОК + КВЕСТ
+   ======================================== */
+.gift-screen {
+    background: var(--celebration-gradient);
+    /* Подарок может быть длиннее экрана после раскрытия */
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.gift-container {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+/* Закрытый подарок */
+.gift-locked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-locked.hidden {
+    display: none;
+}
+
+.gift-box {
+    margin-bottom: var(--spacing-md);
+}
+
+.gift-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+.gift-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.gift-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.quiz-container {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-medium);
+    width: 100%;
+}
+
+.quiz-instruction {
+    font-size: 15px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.quiz-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-family: inherit;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    transition: border-color 0.3s ease;
+}
+
+.quiz-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.quiz-btn {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quiz-btn:active {
+    transform: scale(0.98);
+}
+
+.quiz-error {
+    color: var(--accent-error);
+    font-size: 14px;
+    margin-top: var(--spacing-sm);
+    min-height: 20px;
+}
+
+.quiz-hint {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+    opacity: 0.8;
+}
+
+/* Открытый подарок */
+.gift-unlocked {
+    display: none;
+}
+
+.gift-unlocked.visible {
+    display: block;
+}
+
+.gift-success {
+    margin-bottom: var(--spacing-lg);
+}
+
+.success-emoji {
+    font-size: 64px;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    animation: bounce 1s ease;
+}
+
+.success-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.gift-reveal {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.gift-reveal.visible {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.gift-reveal h3 {
+    font-size: 16px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+/* QR-код заглушка */
+.qr-placeholder {
+    display: flex;
+    justify-content: center;
+}
+
+.qr-mock {
+    width: 200px;
+    height: 200px;
+    background: #f5f5f5;
+    border: 2px dashed #ccc;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+
+.qr-mock span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.qr-mock small {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+/* Карта */
+.map-container {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #f5f5f5;
+    border: 2px dashed #ccc;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+
+.map-placeholder span {
+    font-size: 32px;
+}
+
+.map-placeholder small {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Адрес */
+.address-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    text-align: left;
+}
+
+.address-icon {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.address-text {
+    font-size: 15px;
+}
+
+.address-text strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.address-text p {
+    margin-top: 4px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.map-link-btn {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: #4285f4;
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.map-link-btn:active {
+    background: #3367d6;
+}
+
+/* ========================================
+   ЭКРАН 7: ФИНАЛ
+   ======================================== */
+.final-screen {
+    background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+    text-align: center;
+}
+
+.final-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.final-screen.active .final-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-hearts {
+    font-size: 64px;
+    margin-bottom: var(--spacing-md);
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.final-text {
+    font-family: 'Comfortaa', cursive;
+    font-size: clamp(24px, 7vw, 32px);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.final-signature {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.back-to-top {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-primary);
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s;
+}
+
+.back-to-top:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   АНИМАЦИИ
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateY(5px);
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+/* ========================================
+   АДАПТИВНОСТЬ
+   ======================================== */
+@media (max-width: 380px) {
+    :root {
+        --spacing-md: 20px;
+        --spacing-lg: 28px;
+    }
+
+    .hero-emoji {
+        font-size: 64px;
+    }
+
+    .gift-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Безопасная зона для iPhone */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .final-screen {
+        padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+    }
+}

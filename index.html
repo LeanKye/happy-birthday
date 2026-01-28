@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>С Днём рождения, Саша! 🎉</title>
+    <meta name="description" content="Праздничное поздравление для Саши от любящей семьи">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ========================================
+         ПЕРЕКЛЮЧАТЕЛЬ ЗВУКА
+         Появляется сверху, управляет звуком уведомлений
+    ======================================== -->
+    <div class="sound-toggle" id="soundToggle">
+        <button class="sound-btn" id="soundBtn" aria-label="Включить звук">
+            <span class="sound-icon">🔇</span>
+            <span class="sound-text">Звук выкл</span>
+        </button>
+    </div>
+
+    <!-- ========================================
+         ЭКРАН 1: HERO (ПРИВЕТСТВЕННЫЙ)
+         Большой заголовок с анимацией появления
+    ======================================== -->
+    <section class="screen hero-screen" id="hero">
+        <div class="hero-content">
+            <div class="hero-emoji">🎂</div>
+            <h1 class="hero-title">
+                <span class="title-line">С Днём</span>
+                <span class="title-line">рождения!</span>
+            </h1>
+            <!-- ЗАГЛУШКА: Замените имя именинника если нужно -->
+            <p class="hero-name">Дорогой Саша!</p>
+        </div>
+        <div class="scroll-hint">
+            <span class="scroll-text">Листай вниз</span>
+            <span class="scroll-arrow">👇</span>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ЭКРАН 2: СООБЩЕНИЕ ОТ ВОВЫ
+         ЗАГЛУШКА: Замените текст поздравления
+         КЛЮЧЕВОЕ СЛОВО для квеста: "радость"
+    ======================================== -->
+    <section class="screen chat-screen" id="message-1" data-sender="Вова">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">👨</div>
+                <span class="chat-name">Вова</span>
+            </div>
+            <div class="chat-bubble">
+                <div class="bubble-content">
+                    <!-- ЗАГЛУШКА: Замените на реальное поздравление -->
+                    <p>Дорогой Саша! Поздравляю тебя с этим замечательным днём! 🎉</p>
+                    <p>Желаю тебе бесконечного счастья, здоровья и успехов во всех начинаниях! Пусть каждый день приносит новую <strong>радость</strong> и приятные сюрпризы!</p>
+                    <!-- КЛЮЧЕВОЕ СЛОВО: радость -->
+                </div>
+                <span class="bubble-time">сейчас</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ЭКРАН 3: СООБЩЕНИЕ ОТ АРИШИ
+         ЗАГЛУШКА: Замените текст/видео/аудио поздравления
+         КЛЮЧЕВОЕ СЛОВО для квеста: "улыбка"
+    ======================================== -->
+    <section class="screen chat-screen" id="message-2" data-sender="Ариша">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">👧</div>
+                <span class="chat-name">Ариша</span>
+            </div>
+            <div class="chat-bubble">
+                <div class="bubble-content">
+                    <!-- ЗАГЛУШКА: Замените на видео/аудио или текст -->
+                    <!-- Пример с видео:
+                    <video class="bubble-video" controls poster="assets/video/arisha-poster.jpg">
+                        <source src="assets/video/arisha.mp4" type="video/mp4">
+                    </video>
+                    -->
+                    <p>Папочка, с Днём рождения! 🥳💖</p>
+                    <p>Ты самый лучший! Желаю тебе много-много <strong>улыбок</strong> и вкусных тортиков! 🍰</p>
+                    <!-- КЛЮЧЕВОЕ СЛОВО: улыбка -->
+                </div>
+                <span class="bubble-time">сейчас</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ЭКРАН 4: СООБЩЕНИЕ ОТ РОМЫ
+         ЗАГЛУШКА: Замените текст/видео/аудио поздравления
+         КЛЮЧЕВОЕ СЛОВО для квеста: "победа"
+    ======================================== -->
+    <section class="screen chat-screen" id="message-3" data-sender="Рома">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">👦</div>
+                <span class="chat-name">Рома</span>
+            </div>
+            <div class="chat-bubble">
+                <div class="bubble-content">
+                    <!-- ЗАГЛУШКА: Замените на видео/аудио или текст -->
+                    <!-- Пример с аудио:
+                    <audio class="bubble-audio" controls>
+                        <source src="assets/audio/roma.mp3" type="audio/mpeg">
+                    </audio>
+                    -->
+                    <p>Пап, с Днём рождения! 🎮⚽</p>
+                    <p>Желаю тебе крутых достижений и каждого дня как <strong>победа</strong>! Ты классный!</p>
+                    <!-- КЛЮЧЕВОЕ СЛОВО: победа -->
+                </div>
+                <span class="bubble-time">сейчас</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ЭКРАН 5: СООБЩЕНИЕ ОТ КАТИ
+         ЗАГЛУШКА: Замените текст/видео/аудио поздравления
+    ======================================== -->
+    <section class="screen chat-screen" id="message-4" data-sender="Катя">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">👩</div>
+                <span class="chat-name">Катя</span>
+            </div>
+            <div class="chat-bubble">
+                <div class="bubble-content">
+                    <!-- ЗАГЛУШКА: Замените на видео/аудио или текст -->
+                    <p>Любимый, с Днём рождения! 💕</p>
+                    <p>Спасибо, что ты есть в моей жизни. Ты — мой лучший друг, опора и любовь. Пусть этот год принесёт тебе всё самое прекрасное! 🌟</p>
+                </div>
+                <span class="bubble-time">сейчас</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ЭКРАН 6: ПОДАРОК + КВЕСТ
+         Головоломка для разблокировки подарка
+    ======================================== -->
+    <section class="screen gift-screen" id="gift">
+        <div class="gift-container">
+            <!-- Начальное состояние: подарок закрыт -->
+            <div class="gift-locked" id="giftLocked">
+                <div class="gift-box">
+                    <!-- ЗАГЛУШКА: Замените на свою картинку подарка -->
+                    <!-- Путь: assets/images/gift.png -->
+                    <img src="https://em-content.zobj.net/source/apple/391/wrapped-gift_1f381.png" alt="Подарок" class="gift-image">
+                </div>
+                <h2 class="gift-title">Подарок надёжно спрятан 😎</h2>
+                <p class="gift-subtitle">Чтобы открыть — пройди маленькую проверку</p>
+                
+                <div class="quiz-container">
+                    <p class="quiz-instruction">Введи код из 3 слов, которые встречались выше:</p>
+                    <!-- ЗАГЛУШКА: Правильный ответ: "радость улыбка победа" -->
+                    <!-- Измените слова в script.js если нужно -->
+                    <input type="text" 
+                           class="quiz-input" 
+                           id="quizInput" 
+                           placeholder="три слова через пробел"
+                           autocomplete="off">
+                    <button class="quiz-btn" id="quizBtn">Проверить</button>
+                    <p class="quiz-error" id="quizError"></p>
+                    <p class="quiz-hint">Подсказка: ищи выделенные слова в сообщениях 😉</p>
+                </div>
+            </div>
+
+            <!-- Раскрытое состояние: подарок открыт -->
+            <div class="gift-unlocked" id="giftUnlocked">
+                <div class="gift-success">
+                    <span class="success-emoji">🎉</span>
+                    <h2 class="success-title">Ура! Подарок твой!</h2>
+                </div>
+                
+                <div class="gift-reveal gift-item" id="revealQR">
+                    <h3>Твой подарок:</h3>
+                    <!-- ЗАГЛУШКА: Замените на реальный QR/штрихкод Ozon -->
+                    <!-- Путь: assets/images/qr-code.png -->
+                    <div class="qr-placeholder">
+                        <div class="qr-mock">
+                            <span>QR-код</span>
+                            <small>Замени на реальный</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gift-reveal gift-item" id="revealMap">
+                    <h3>Забери меня здесь:</h3>
+                    <!-- ЗАГЛУШКА: Замените на скриншот карты -->
+                    <!-- Путь: assets/images/map.png -->
+                    <div class="map-container">
+                        <img src="https://maps.googleapis.com/maps/api/staticmap?center=55.7558,37.6173&zoom=15&size=300x200&markers=color:red%7C55.7558,37.6173&key=DEMO" 
+                             alt="Карта" 
+                             class="map-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="map-placeholder" style="display: none;">
+                            <span>📍 Карта</span>
+                            <small>Замени на скриншот</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gift-reveal gift-item" id="revealAddress">
+                    <!-- ЗАГЛУШКА: Замените на реальный адрес -->
+                    <div class="address-card">
+                        <span class="address-icon">📍</span>
+                        <div class="address-text">
+                            <strong>Адрес:</strong>
+                            <!-- ЗАГЛУШКА: Введите сюда реальный адрес -->
+                            <p id="pickupAddress">г. Москва, ул. Примерная, д. 1, пункт выдачи Ozon</p>
+                        </div>
+                    </div>
+                    <!-- ЗАГЛУШКА: Добавьте ссылку на карты -->
+                    <!-- Раскомментируйте и вставьте реальную ссылку -->
+                    <!--
+                    <a href="https://yandex.ru/maps/-/XXXXX" target="_blank" class="map-link-btn">
+                        Открыть в картах 🗺️
+                    </a>
+                    -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ЭКРАН 7: ФИНАЛ
+         Завершающая подпись от семьи
+    ======================================== -->
+    <section class="screen final-screen" id="final">
+        <div class="final-content">
+            <div class="final-hearts">💕</div>
+            <p class="final-text">С любовью от твоей семьи</p>
+            <div class="final-signature">Вова, Катя, Ариша и Рома</div>
+            <button class="back-to-top" id="backToTop">
+                Вернуться наверх ⬆️
+            </button>
+        </div>
+    </section>
+
+    <!-- ЗАГЛУШКА: Звук уведомления -->
+    <!-- Путь: assets/audio/notification.mp3 -->
+    <!-- Добавьте свой звук и раскомментируйте в script.js -->
+    
+    <script src="script.js"></script>
+</body>
+</html>
