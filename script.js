@@ -208,8 +208,9 @@ function initQuiz() {
 
     function normalizeAnswer(text) {
         return text
+            .toLowerCase() // Приводим к нижнему регистру для сравнения
             .trim()
-            .replace(/\s+/g, ' '); // Множественные пробелы в один, но сохраняем регистр
+            .replace(/\s+/g, ' '); // Множественные пробелы в один
     }
 
     function unlockGift() {
