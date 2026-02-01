@@ -207,10 +207,12 @@ function initQuiz() {
     }
 
     function normalizeAnswer(text) {
+        if (!text) return '';
         return text
             .toLowerCase() // Приводим к нижнему регистру для сравнения
-            .trim()
-            .replace(/\s+/g, ' '); // Множественные пробелы в один
+            .replace(/[\u200B-\u200D\uFEFF]/g, '') // Убираем невидимые символы
+            .replace(/[\s\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]+/g, ' ') // Все виды пробелов в обычный пробел
+            .trim();
     }
 
     function unlockGift() {
